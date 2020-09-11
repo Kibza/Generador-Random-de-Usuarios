@@ -1,0 +1,22 @@
+<div class="mt-5">
+  <div class="col-md-12">
+    <form name="addTodoForm" #addTodoForm="ngForm" (ngSubmit)="onSubmitAddForm(addTodoForm);" novalidat>
+      <fieldset>
+        <legend class="text-info">Agregar Usuario</legend>
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" #name="ngModel" name="name" id="name" [(ngModel)]="user.name"
+            placeholder="Ingresa un nombre" required>
+          <div [hidden]="name.valid || (name.pristine && !addTodoForm.submitted)" class="text-danger">
+            "Nombre" es un campo requerido.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="file">Subir documento</label>
+          <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

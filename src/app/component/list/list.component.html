@@ -1,0 +1,33 @@
+<div class="mt-5">
+  <div class="col-md-12">
+    <fieldset>
+      <legend class="text-info">Usuarios</legend>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Sexo</th>
+              <th scope="col">Documento</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of todoSub | async ; trackBy:trackByToDo;">
+              <td scope="row">{{user.id}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.age}}</td>
+              <td>{{user.gender}}</td>
+              <td>{{user.doc && '✅ Cargado' || '❌ No encontrado'}}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="deleteRecord(user.id)">Borrar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </fieldset>
+  </div>
+</div>
